@@ -7,6 +7,17 @@ def getInput():
     finally:
         return infile.read()
 
+def putOutput(arr):
+    try:
+        outfile = open('insert.out', 'w')
+    except IOError:
+        print("File IO Error")
+        quit()
+    finally:
+        for k in arr:
+            outfile.write("%s " % k)
+        return
+
 def insertSort(str):
     n = int(str.pop(0))
 
@@ -26,7 +37,7 @@ def insertSort(str):
 
 def main():
     sorted = insertSort(getInput().rstrip().split(" "))
-    print(sorted)
+    putOutput(sorted)
     return 0
 
 main()
